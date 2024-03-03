@@ -1,14 +1,13 @@
 ﻿using MediatR;
-
 using Setsis.Service.Services.Category;
-using Setsis.Infrastructure.CQRS.Queries.Response;
-using Setsis.Infrastructure.CQRS.Queries.Request;
-using Setsis.Infrastructure.CQRS.Commands.Request;
-using Setsis.Infrastructure.CQRS.Commands.Response;
 using Setsis.Core.Dtos;
 using Setsis.Service.Services.Category.Dto;
 using Setsis.Core.Validation;
 using Setsis.Service.Services.Category.Validator;
+using Setsis.Infrastructure.CQRS.Commands.Categories.Response;
+using Setsis.Infrastructure.CQRS.Queries.Category.Response;
+using Setsis.Infrastructure.CQRS.Queries.Category.Request;
+using Setsis.Infrastructure.CQRS.Commands.Categories.Request;
 
 namespace Setsis.Service.Category
 {

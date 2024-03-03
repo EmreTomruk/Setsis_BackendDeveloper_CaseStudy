@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
-
 using Setsis.Service.Services.User;
 using Setsis.Service.Services.User.Dto.Request;
 

@@ -3,7 +3,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Options;
-
 using Setsis.Core.Configurations;
 using System.Security.Claims;
 using Setsis.Core.Models;

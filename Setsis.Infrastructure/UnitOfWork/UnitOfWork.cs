@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
 using Setsis.Core.Models;
 using Setsis.Core.Repositories;
 using Setsis.Core.UnitOfWork;

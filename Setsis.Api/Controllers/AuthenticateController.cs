@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using Setsis.Service.Services.Authenticate;
 using Setsis.Service.Services.Authenticate.Dto.Request;
 

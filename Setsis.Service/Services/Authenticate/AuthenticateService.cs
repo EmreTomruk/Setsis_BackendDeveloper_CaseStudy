@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
 using Setsis.Core.Dtos;
 using Setsis.Core.Models;
 using Setsis.Core.UnitOfWork;

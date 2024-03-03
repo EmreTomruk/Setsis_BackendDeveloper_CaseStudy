@@ -1,6 +1,6 @@
 ﻿using Setsis.Core.Dtos;
-using Setsis.Infrastructure.CQRS.Commands.Response;
-using Setsis.Infrastructure.CQRS.Queries.Response;
+using Setsis.Infrastructure.CQRS.Commands.Categories.Response;
+using Setsis.Infrastructure.CQRS.Queries.Category.Response;
 using Setsis.Service.Services.Category.Dto;
 
 namespace Setsis.Service.Services.Category

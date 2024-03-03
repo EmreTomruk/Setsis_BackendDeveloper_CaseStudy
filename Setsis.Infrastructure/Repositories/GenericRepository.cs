@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
 using Setsis.Core.Repositories;
 using System.Linq.Expressions;
 

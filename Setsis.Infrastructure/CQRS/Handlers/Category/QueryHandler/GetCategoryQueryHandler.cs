@@ -1,13 +1,11 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-
 using Setsis.Core.Dtos;
-using Setsis.Core.Models;
 using Setsis.Core.UnitOfWork;
-using Setsis.Infrastructure.CQRS.Queries.Request;
-using Setsis.Infrastructure.CQRS.Queries.Response;
+using Setsis.Infrastructure.CQRS.Queries.Category.Request;
+using Setsis.Infrastructure.CQRS.Queries.Category.Response;
 
-namespace Setsis.Infrastructure.CQRS.Handlers.QueryHandler
+namespace Setsis.Infrastructure.CQRS.Handlers.Category.QueryHandler
 {
     public class GetCategoryQueryHandler : IRequestHandler<GetCategoryQueryRequest, Response<GetCategoryQueryResponse>>
     {
@@ -20,7 +18,7 @@ namespace Setsis.Infrastructure.CQRS.Handlers.QueryHandler
 
         public async Task<Response<GetCategoryQueryResponse>> Handle(GetCategoryQueryRequest request, CancellationToken cancellationToken)
         {
-            var category = await _unitOfWork.GetRepository<Category>().Entities.Where(p => p.Id == request.Id).SingleOrDefaultAsync();
+            var category = await _unitOfWork.GetRepository<Core.Models.Category>().Entities.Where(p => p.Id == request.Id).SingleOrDefaultAsync();
 
             if (category == null)
                 return Response<GetCategoryQueryResponse>.Fail(new ErrorDto("Category not found"), 404);

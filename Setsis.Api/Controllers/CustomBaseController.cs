@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-
 using Setsis.Core.Dtos;
 
 namespace Setsis.Api.Controllers

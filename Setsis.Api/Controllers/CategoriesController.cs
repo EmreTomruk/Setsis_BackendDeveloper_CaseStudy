@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
 using Setsis.Service.Services.Category;
 using Setsis.Service.Services.Category.Dto;
 

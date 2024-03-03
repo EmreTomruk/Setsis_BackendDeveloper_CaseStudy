@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
 using Setsis.Core.Models;
 using Setsis.Core.Repositories;
 using Setsis.Core.UnitOfWork;

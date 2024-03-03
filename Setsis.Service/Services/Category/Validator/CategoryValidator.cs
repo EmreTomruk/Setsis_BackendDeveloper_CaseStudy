@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-
 using Setsis.Service.Services.Category.Dto;
 
 namespace Setsis.Service.Services.Category.Validator

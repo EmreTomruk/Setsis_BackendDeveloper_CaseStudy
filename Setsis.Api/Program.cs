@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using MediatR;
-
 using Setsis.Api.Extensions;
 using Setsis.Core.Configurations;
 using Setsis.Infrastructure;

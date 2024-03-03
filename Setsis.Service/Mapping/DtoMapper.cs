@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-
 using Setsis.Core.Models;
 using Setsis.Service.Services.User.Dto.Result;
 
