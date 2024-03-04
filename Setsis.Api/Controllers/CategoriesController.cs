@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Setsis.Infrastructure.CQRS.Commands.Categories.Request;
 using Setsis.Service.Services.Category;
-using Setsis.Service.Services.Category.Dto;
 
 namespace Setsis.Api.Controllers
 {
@@ -17,6 +17,12 @@ namespace Setsis.Api.Controllers
             _categoryService = categoryService;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllCategories()
+        {
+            return ActionResultInstance(await _categoryService.GetAllCategoriesAsync());
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
@@ -24,15 +30,15 @@ namespace Setsis.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCategory(AddCategoryDto categoryDto)
+        public async Task<IActionResult> AddCategory(CreateCategoryCommandRequest categoryDto)
         {
             return ActionResultInstance(await _categoryService.AddCategoryAsync(categoryDto));
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, UpdateCategoryDto updateCategoryDto)
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory(UpdateCategoryCommandRequest updateCategoryDto)
         {
-            return ActionResultInstance(await _categoryService.UpdateCategoryAsync(id, updateCategoryDto));
+            return ActionResultInstance(await _categoryService.UpdateCategoryAsync(updateCategoryDto));
         }
 
         [HttpDelete("{id}")]

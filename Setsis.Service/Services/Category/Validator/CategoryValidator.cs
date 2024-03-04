@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Setsis.Service.Services.Category.Dto;
+using Setsis.Infrastructure.CQRS.Commands.Categories.Request;
 
 namespace Setsis.Service.Services.Category.Validator
 {
@@ -11,7 +11,7 @@ namespace Setsis.Service.Services.Category.Validator
         }
     }
 
-    internal class AddCategoryValidator : AbstractValidator<AddCategoryDto>
+    internal class AddCategoryValidator : AbstractValidator<CreateCategoryCommandRequest>
     {
         public AddCategoryValidator()
         {
@@ -19,7 +19,7 @@ namespace Setsis.Service.Services.Category.Validator
         }
     }
 
-    internal class UpdateCategoryValidator : AbstractValidator<UpdateCategoryDto>
+    internal class UpdateCategoryValidator : AbstractValidator<UpdateCategoryCommandRequest>
     {
         public UpdateCategoryValidator()
         {

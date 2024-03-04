@@ -15,9 +15,9 @@ namespace Setsis.Infrastructure.UnitOfWork
             _dbContext = dbContext;
         }
 
-        public IRepository<T> GetRepository<T>() where T : class
+        public IGenericRepository<T> GetRepository<T>() where T : class
         {
-            return new Repository<T>(_dbContext);
+            return new GenericRepository<T>(_dbContext);
         }
 
         public void Commit()

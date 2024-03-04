@@ -4,12 +4,12 @@ using System.Linq.Expressions;
 
 namespace Setsis.Infrastructure.Repositories
 {
-    public class Repository<Tentity> : IRepository<Tentity> where Tentity : class
+    public class GenericRepository<Tentity> : IGenericRepository<Tentity> where Tentity : class
     {
         private readonly DbContext _dbContext;
         private readonly DbSet<Tentity> _dbSet;
 
-        public Repository(DbContext dbContext)
+        public GenericRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = dbContext.Set<Tentity>();
@@ -22,14 +22,11 @@ namespace Setsis.Infrastructure.Repositories
             await _dbSet.AddAsync(entity);
         }
 
-        public async Task<IEnumerable<Tentity>> GetAllAsync()
+        public async Task<List<Tentity>> GetAllAsync()
         {
-            var entries = await _dbSet.ToListAsync();
+            var entries = await _dbSet.AsNoTracking().ToListAsync();
 
-            if (entries != null)
-                _dbContext.Entry(entries).State = EntityState.Detached;
-
-            return await _dbSet.ToListAsync();
+            return entries;
         }
 
         public async Task<Tentity?> GetByIdAsync(int id)

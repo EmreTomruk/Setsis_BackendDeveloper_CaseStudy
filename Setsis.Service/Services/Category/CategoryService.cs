@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Setsis.Service.Services.Category;
 using Setsis.Core.Dtos;
-using Setsis.Service.Services.Category.Dto;
 using Setsis.Core.Validation;
 using Setsis.Service.Services.Category.Validator;
 using Setsis.Infrastructure.CQRS.Commands.Categories.Response;
@@ -22,6 +21,11 @@ namespace Setsis.Service.Category
             _validationService = validationService;
         }
 
+        public async Task<Response<List<GetCategoryQueryResponse>>> GetAllCategoriesAsync()
+        {
+            return await _mediator.Send(new GetAllCategoriesQueryRequest());
+        }
+
         public async Task<Response<GetCategoryQueryResponse>> GetCategoryAsync(int id)
         {
             var validationResult = _validationService.Validate(typeof(GetCategoryValidator), id);
@@ -32,26 +36,24 @@ namespace Setsis.Service.Category
             return await _mediator.Send(new GetCategoryQueryRequest { Id = id });
         }
 
-
-        public async Task<Response<CreateCategoryCommandResponse>> AddCategoryAsync(AddCategoryDto categoryDto)
+        public async Task<Response<CreateCategoryCommandResponse>> AddCategoryAsync(CreateCategoryCommandRequest categoryDto)
         {
             var validationResult = _validationService.Validate(typeof(AddCategoryValidator), categoryDto);
 
             if (!validationResult.IsValid)
                 return Response<CreateCategoryCommandResponse>.Fail(new ErrorDto(validationResult.ErrorMessages), 400);
 
-            return await _mediator.Send(new CreateCategoryCommandRequest { Name = categoryDto.Name });
+            return await _mediator.Send(categoryDto);
         }
 
-        public async Task<Response<UpdateCategoryCommandResponse>> UpdateCategoryAsync(int id, UpdateCategoryDto categoryDto)
+        public async Task<Response<UpdateCategoryCommandResponse>> UpdateCategoryAsync(UpdateCategoryCommandRequest categoryDto)
         {
-            var validationResult = _validationService.Validate(typeof(UpdateCategoryValidator), 
-                new UpdateCategoryDto { Id = id, Name = categoryDto.Name });
+            var validationResult = _validationService.Validate(typeof(UpdateCategoryValidator), categoryDto);
 
             if (!validationResult.IsValid)
                 return Response<UpdateCategoryCommandResponse>.Fail(new ErrorDto(validationResult.ErrorMessages), 400);
 
-            return await _mediator.Send(new UpdateCategoryCommandRequest { Name = categoryDto.Name });
+            return await _mediator.Send(categoryDto);
         }
 
         public async Task<Response<DeleteCategoryCommandResponse>> DeleteCategoryAsync(int id)

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Setsis.Api.Mapping;
 using Setsis.Core.Models;
 using Setsis.Core.Repositories;
 using Setsis.Core.UnitOfWork;
@@ -9,9 +10,10 @@ using Setsis.Infrastructure;
 using Setsis.Infrastructure.Repositories;
 using Setsis.Infrastructure.UnitOfWork;
 using Setsis.Service.Category;
-using Setsis.Service.Mapping;
+using Setsis.Service.Product;
 using Setsis.Service.Services.Authenticate;
 using Setsis.Service.Services.Category;
+using Setsis.Service.Services.Product;
 using Setsis.Service.Services.Token;
 using Setsis.Service.Services.User;
 
@@ -54,9 +56,10 @@ namespace Setsis.Api.Extensions
             services.AddScoped<IValidationService, ValidationService>();
             services.AddScoped<IAuthenticateService, AuthenticateService>();            
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();          
             services.AddTransient<ITokenService, TokenService>();            
 
             return services;

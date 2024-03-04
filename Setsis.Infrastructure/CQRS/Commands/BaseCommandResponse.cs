@@ -1,4 +1,4 @@
-﻿namespace Setsis.Infrastructure.CQRS.Commands.Categories.Response
+﻿namespace Setsis.Infrastructure.CQRS.Commands
 {
     public abstract class BaseCommandResponse
     {

@@ -7,5 +7,6 @@ namespace Setsis.Infrastructure.CQRS.Queries.Category.Request
     public class GetCategoryQueryRequest : IRequest<Response<GetCategoryQueryResponse>>
     {
         public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
