@@ -2,13 +2,13 @@
 
 namespace Setsis.Core.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IGenericRepository<TEntity> where TEntity : class
     {
         IQueryable<TEntity> Entities { get; }
 
         Task<TEntity?> GetByIdAsync(int id);
 
-        Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<List<TEntity>> GetAllAsync();
 
         IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
 

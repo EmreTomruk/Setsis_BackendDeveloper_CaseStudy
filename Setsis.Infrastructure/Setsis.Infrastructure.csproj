@@ -20,10 +20,4 @@
 		<ProjectReference Include="..\Setsis.Core\Setsis.Core.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="CQRS\Commands\Product\" />
-	  <Folder Include="CQRS\Handlers\Product\" />
-	  <Folder Include="CQRS\Queries\Product\" />
-	</ItemGroup>
-
 </Project>

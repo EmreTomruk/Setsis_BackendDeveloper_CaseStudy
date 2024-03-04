@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Setsis.Infrastructure\Setsis.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Product\" />
-  </ItemGroup>
-
 </Project>
